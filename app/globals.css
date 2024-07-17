@@ -63,7 +63,12 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+body {
+  background-color: #1f2937;
 }

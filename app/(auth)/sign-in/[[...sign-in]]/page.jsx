@@ -70,7 +70,7 @@ export default function Page() {
               </p>
             </div>
 
-            <SignIn path='/sign-in' />
+            <SignIn path='/sign-in' fallbackRedirectUrl='/create' />
           </div>
         </main>
       </div>

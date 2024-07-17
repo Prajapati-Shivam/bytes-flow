@@ -37,8 +37,15 @@ const Navbar = () => {
         </Link>
         {isSignedIn ? (
           <div className='flex items-center gap-x-4'>
-            <Link href={'/dashboard'}>
-              <Button>Dashboard</Button>
+            <Link href={'/explore'}>
+              <Button variant='link' size='sm' className='text-white'>
+                Explore
+              </Button>
+            </Link>
+            <Link href={'/my-creation'}>
+              <Button variant='link' size='sm' className='text-white'>
+                My Creation
+              </Button>
             </Link>
             <UserButton />
           </div>
