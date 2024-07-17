@@ -7,7 +7,7 @@ export default function Page() {
       <div className='lg:grid lg:min-h-screen lg:grid-cols-12'>
         <section className='relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6'>
           <Image
-            src='/form_image.jpg'
+            src='/assets/form_image.jpg'
             alt='form image'
             layout='fill'
             className='absolute inset-0 h-full w-full object-cover opacity-80'
