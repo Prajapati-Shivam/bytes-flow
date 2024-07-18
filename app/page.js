@@ -21,7 +21,7 @@ export default function Home() {
           </p>
 
           <div className='mt-8 flex flex-wrap gap-4 text-center'>
-            <Link href='/sign-up'>
+            <Link href='/create'>
               <Button className='px-12 py-3'>Get Started</Button>
             </Link>
             <Link href='/'>

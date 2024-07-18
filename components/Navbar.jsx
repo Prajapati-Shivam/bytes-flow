@@ -1,6 +1,7 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { SignInButton, UserButton, useUser } from '@clerk/nextjs';
+import { ImagePlus, Pickaxe, Telescope } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
@@ -8,18 +9,24 @@ import React from 'react';
 const Navbar = () => {
   const { user, isSignedIn } = useUser();
   const path = usePathname();
-  const pathsToExclude = ['/aiform', '/sign-in', '/sign-up'];
+  const pathsToExclude = ['/sign-in', '/sign-up'];
 
   const shouldExcludeHeader = pathsToExclude.some((excludedPath) =>
     path.includes(excludedPath)
   );
 
   if (shouldExcludeHeader) {
-    return null;
+    return;
   }
 
+  const navLinks = [
+    { title: 'Explore', href: '/explore', logo: Telescope },
+    { title: 'My Creation', href: '/my-creation', logo: Pickaxe },
+    { title: 'Create', href: '/create', logo: ImagePlus },
+  ];
+
   return (
-    <div className='border-b shadow-sm fixed top-0 z-50 bg-opacity-80 backdrop-filter backdrop-blur-md w-full px-4 py-3 sm:px-6 lg:px-8'>
+    <div className='border-b shadow-sm fixed top-0 z-50 bg-opacity-80 backdrop-filter backdrop-blur-md w-full px-4 sm:px-8 py-3 lg:px-20'>
       <div className='flex items-center justify-between'>
         <Link href={'/'} className='flex items-center gap-2 text-white'>
           <svg
@@ -36,17 +43,23 @@ const Navbar = () => {
           <h1 className='cursor-pointer font-bold text-2xl'>Bytes</h1>
         </Link>
         {isSignedIn ? (
-          <div className='flex items-center gap-x-4'>
-            <Link href={'/explore'}>
-              <Button variant='link' size='sm' className='text-white'>
-                Explore
-              </Button>
-            </Link>
-            <Link href={'/my-creation'}>
-              <Button variant='link' size='sm' className='text-white'>
-                My Creation
-              </Button>
-            </Link>
+          <div className='flex items-center gap-x-2 sm:gap-x-4'>
+            {navLinks.map((link) => (
+              <Link
+                key={link.title}
+                href={link.href}
+                className={
+                  path === link.href
+                    ? 'text-white text-sm rounded-md bg-gray-700 p-2'
+                    : 'text-white text-sm rounded-md hover:bg-gray-700 p-2'
+                }
+              >
+                <div className='flex items-center gap-2'>
+                  <link.logo size={20} />
+                  <span className='hidden sm:block'>{link.title}</span>
+                </div>
+              </Link>
+            ))}
             <UserButton />
           </div>
         ) : (
