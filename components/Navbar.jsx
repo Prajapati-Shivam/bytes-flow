@@ -68,7 +68,7 @@ const Navbar = () => {
               <Button variant='secondary'>Login</Button>
             </SignInButton>
             <SignInButton>
-              <Button>Get Started</Button>
+              <Button className='hidden sm:block'>Get Started</Button>
             </SignInButton>
           </div>
         )}

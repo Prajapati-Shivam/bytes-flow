@@ -51,7 +51,7 @@ const Create = () => {
   return (
     <div className='px-4 sm:px-8 py-8 lg:px-20 h-screen'>
       <div className='mt-12 flex flex-col gap-4'>
-        <div className='flex items-center gap-4 text-white relative'>
+        <div className='hidden sm:flex items-center gap-4 text-white relative'>
           <input
             type='text'
             name='prompt'
@@ -79,6 +79,33 @@ const Create = () => {
               )}
             </button>
           </span>
+        </div>
+        <div className='sm:hidden flex flex-col items-center gap-4 text-white relative'>
+          <textarea
+            type='text'
+            name='prompt'
+            id='prompt'
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder='Description of your image'
+            className='w-full p-5 rounded-2xl bg-gray-700 outline-none'
+          />
+          <button
+            onClick={handleSubmit}
+            disabled={!prompt || loading}
+            className={`text-white bg-blue-500 font-bold py-2 px-3 w-full rounded-2xl ${
+              loading ? 'opacity-80 cursor-not-allowed' : ''
+            }`}
+          >
+            {loading ? (
+              <div className='flex items-center gap-2'>
+                <Loader2 size={24} className='animate-spin' />
+                <span>Creating...</span>
+              </div>
+            ) : (
+              'Create'
+            )}
+          </button>
         </div>
         <div className='bg-gray-700 w-full p-5 min-h-96 rounded-2xl'>
           {resultImg == null ? (
