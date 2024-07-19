@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const Navbar = () => {
-  const { user, isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
   const path = usePathname();
   const pathsToExclude = ['/sign-in', '/sign-up'];
 
@@ -67,9 +67,9 @@ const Navbar = () => {
             <SignInButton>
               <Button variant='secondary'>Login</Button>
             </SignInButton>
-            <SignInButton>
+            <Link href={'/create'}>
               <Button className='hidden sm:block'>Get Started</Button>
-            </SignInButton>
+            </Link>
           </div>
         )}
       </div>

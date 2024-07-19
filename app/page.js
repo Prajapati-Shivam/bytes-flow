@@ -8,7 +8,7 @@ export default function Home() {
       <div className='relative mx-auto max-w-screen-xl px-4 flex justify-center sm:justify-start h-screen items-center sm:px-8 lg:px-20'>
         <div className='max-w-xl text-center sm:text-left'>
           <h1 className='text-3xl font-extrabold text-white sm:text-5xl'>
-            <strong className='block font-extrabold text-rose-500'>
+            <strong className='block font-extrabold text-gray-400'>
               Create and Edit{' '}
             </strong>
             Images with Bytes.
