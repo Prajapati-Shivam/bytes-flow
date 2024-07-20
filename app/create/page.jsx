@@ -50,7 +50,31 @@ const Create = () => {
 
   return (
     <div className='px-4 sm:px-8 py-8 lg:px-20 h-screen'>
-      <div className='mt-12 flex flex-col gap-4'>
+      <div className='grid pt-12 pb-10 min-h-[100vh] grid-rows-[1fr_auto] gap-4'>
+        <div className='bg-gray-700 w-full p-5 h-full rounded-2xl'>
+          {resultImg == null ? (
+            <div className='flex items-center justify-center h-full mt-10'>
+              <Image
+                src='/assets/create_page.svg'
+                alt='placeholder'
+                width={200}
+                height={200}
+                priority
+              />
+            </div>
+          ) : (
+            <div className='flex items-center justify-center h-full mt-8'>
+              <Image
+                src={resultImg}
+                alt='result'
+                width={400}
+                height={400}
+                priority
+                className='rounded-2xl'
+              />
+            </div>
+          )}
+        </div>
         <div className='hidden sm:flex items-center gap-4 text-white relative'>
           <input
             type='text'
@@ -106,30 +130,6 @@ const Create = () => {
               'Create'
             )}
           </button>
-        </div>
-        <div className='bg-gray-700 w-full p-5 min-h-96 rounded-2xl'>
-          {resultImg == null ? (
-            <div className='flex items-center justify-center h-full mt-10'>
-              <Image
-                src='/assets/create_page.svg'
-                alt='placeholder'
-                width={200}
-                height={200}
-                priority
-              />
-            </div>
-          ) : (
-            <div className='flex items-center justify-center h-full mt-8'>
-              <Image
-                src={resultImg}
-                alt='result'
-                width={400}
-                height={400}
-                priority
-                className='rounded-2xl'
-              />
-            </div>
-          )}
         </div>
       </div>
     </div>

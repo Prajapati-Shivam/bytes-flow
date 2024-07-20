@@ -72,3 +72,25 @@
 body {
   background-color: #1f2937;
 }
+
+.fade-up-1 {
+  animation: fade-up 1s ease-out 0.5s;
+}
+
+.fade-up-2 {
+  animation: fade-up 1s ease-out 1s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    display: none;
+    transform: translateY(2rem);
+  }
+
+  to {
+    opacity: 1;
+    display: block;
+    transform: translateY(0);
+  }
+}

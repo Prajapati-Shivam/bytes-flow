@@ -60,7 +60,6 @@ const Navbar = () => {
                 </div>
               </Link>
             ))}
-            <UserButton />
           </div>
         ) : (
           <div className='flex items-center gap-x-2'>
@@ -72,6 +71,7 @@ const Navbar = () => {
             </Link>
           </div>
         )}
+        {isSignedIn && <UserButton />}
       </div>
     </div>
   );
